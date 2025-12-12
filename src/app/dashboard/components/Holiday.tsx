@@ -40,8 +40,8 @@ export default function Holiday() {
     const formattedDate = new Date(holiday.date).toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' });
     return (
         <motion.div
-            initial={{ opacity: 0, y: 10 }} // começa invisível e mais baixo
-            animate={{ opacity: 1, y: 0 }} // aparece e sobe
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 2.5, ease: 'backInOut' }}
             className="mt-10 p-4 rounded-xl bg-[#e0e0e049] dark:bg-[#27272756] w-[40vw]  min-w-[250px]  flex flex-col items-center justify-center  gap-4 text-sm text-neutral-500 dark:text-neutral-200"
         >

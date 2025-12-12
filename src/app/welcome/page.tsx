@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 export default function Welcome() {
     const router = useRouter();
     return (
-        <main className=" flex-1 bg-[#F5F5F5] dark:bg-neutral-900 flex items-center justify-center px-6 ">
+        <main className=" flex-1 bg-[#F5F5F5]  dark:bg-neutral-900 flex items-center justify-center px-6 ">
             <div className=" bg-white dark:bg-neutral-800 w-full h-80 max-w-4xl p-12 rounded-xl shadow-lg text-center relative overflow-hidden">
                 {/* Fundo decorativo (simples e leve) */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -15,12 +15,11 @@ export default function Welcome() {
                 </div>
 
                 {/* Conteúdo principal */}
-                <div className="relative z-10">
-                    <h1 className="text-5xl font-bold text-gray-800 dark:text-neutral-100">WeatherNow</h1>
+                <div className="relative z-10 ">
+                    <h1 className="text-3xl sm:text-5xl font-bold  text-gray-800 dark:text-neutral-100 ">WeatherNow</h1>
 
-                    <p className="text-lg text-gray-600  dark:text-neutral-200 mt-2">Seu clima, de forma simples e direta</p>
-
-                    <p className="text-gray-500 dark:text-neutral-300 mt-6 max-w-xl mx-auto text-sm">
+                    <p className="text-sm text-gray-600  dark:text-neutral-200 mt-1 ">Seu clima, de forma simples e direta</p>
+                    <p className="text-gray-500 dark:text-neutral-300 mt-6 max-w-xl mx-auto text-xs sm:text-sm">
                         Veja a temperatura atual da sua cidade, condições do céu, alerta de chuvas, horários de nascer e pôr do sol, e muito mais.
                     </p>
 

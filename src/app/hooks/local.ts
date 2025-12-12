@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-type LocationSuggestion = {
+export type LocationSuggestion = {
     name: string;
     fullName: string;
     lat: number;
@@ -30,7 +30,10 @@ export default function Local() {
     };
 
       useEffect(() => {
-        inputRef.current?.focus();
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 450 
+
+        if (!isMobile) {
+        inputRef.current?.focus();}
     }, [suggestions]);
 
     
@@ -50,7 +53,6 @@ export default function Local() {
 
             try {
                 if (!process.env.NEXT_PUBLIC_MAPBOX_KEY) {
-                    console.error('❌ Mapbox API key não configurada');
                     setSuggestions([]);
                     setIsLoading(false);
                     return;
@@ -60,13 +62,12 @@ export default function Local() {
                     params: {
                         access_token: process.env.NEXT_PUBLIC_MAPBOX_KEY,
                         language: 'pt',
-                        limit: 3,
-                        types: 'place' // limita resultados a cidades (place)
+                        types: 'place' 
                     }
                 });
 
                 if (res.data?.features && res.data.features.length > 0) {
-                    const options = res.data.features.slice(0, 3).map((item: any) => ({
+                    const options = res.data.features.slice(0, 4).map((item: any) => ({
                         name: item.text,
                         fullName: item.place_name,
                         lat: item.center[1],
@@ -75,14 +76,14 @@ export default function Local() {
                         country: item.context?.find((c: any) => c.id.includes('country'))?.text || ''
                     }));
 
-                    console.log('✅ Sugestões retornadas:', options);
+                    console.log('Sugestões retornadas:', options);
                     setSuggestions(options);
                 } else {
-                    console.warn('⚠️ Nenhum resultado encontrado');
+                    console.log('Nenhum resultado encontrado');
                     setSuggestions([]);
                 }
             } catch (e) {
-                console.error('❌ Erro ao buscar sugestões:', e);
+                console.log(' Erro ao buscar sugestões:', e);
                 setSuggestions([]);
             } finally {
                 setIsLoading(false);
@@ -101,16 +102,16 @@ export default function Local() {
 
      const SearchCity = async () => {
         if (!selectedLocation) {
-            console.warn('⚠️ Nenhuma localização selecionada');
+            console.log('Nenhuma localização selecionada');
             return;
         }
 
-        console.log('🔍 Buscando weather para:', selectedLocation);
+        console.log('Buscando weather para:', selectedLocation);
         setIsLoading(true);
 
         try {
             if (!process.env.NEXT_PUBLIC_WEATHER_API_KEY) {
-                console.error('❌ OpenWeather API key não configurada');
+                console.error('OpenWeather API key não configurada');
                 setIsLoading(false);
                 return;
             }
@@ -125,7 +126,7 @@ export default function Local() {
                 }
             });
 
-            console.log('✅ Dados climáticos obtidos:', weatherRes.data);
+            console.log('Dados climáticos obtidos:', weatherRes.data);
 
             // Redireciona para o dashboard passando os dados como query params
             const params = new URLSearchParams({
@@ -145,7 +146,7 @@ export default function Local() {
 
             router.push(`/dashboard?${params.toString()}`);
         } catch (e) {
-            console.error('❌ Erro ao buscar dados climáticos:', e);
+            console.error('Erro ao buscar dados climáticos:');
         } finally {
             setIsLoading(false);
         }

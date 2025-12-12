@@ -11,7 +11,7 @@ export default async function fiveDaysAPI(lat: number, lon: number) {
   const response = await axios.get(url);
   const data = response.data;
 
-  // Agrupar previsões por dia
+  // Agrupo previsões por dia
   const daily: any = {};
 
   data.list.forEach((item: any) => {
@@ -24,7 +24,7 @@ export default async function fiveDaysAPI(lat: number, lon: number) {
     daily[date].push(item);
   });
 
-  // Formatar cada dia com temp média e dia da semana
+  // Formato cada dia com temperatura média e o dia da semana
   const formatted = Object.keys(daily).map(day => {
     const entries = daily[day];
 
@@ -34,7 +34,7 @@ export default async function fiveDaysAPI(lat: number, lon: number) {
     const middleEntry = entries[Math.floor(entries.length / 2)];
 
     return {
-      weekday: capitalize(getWeekday(middleEntry.dt)), // segunda, terça...
+      weekday: capitalize(getWeekday(middleEntry.dt)), // Ele retora segunda, terça...
       avgTemp: Math.round(avgTemp),
       icon: middleEntry.weather[0].icon
     };
@@ -46,7 +46,7 @@ export default async function fiveDaysAPI(lat: number, lon: number) {
 function getWeekday(dt: number) {
   const date = new Date(dt * 1000);
   const weekdays = [
-    'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'
+    'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb' // converto para seg, ter, qua...
   ];
   return weekdays[date.getDay()];
 }

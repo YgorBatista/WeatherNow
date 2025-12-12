@@ -66,11 +66,15 @@ export default function NextFiveDays({ lat, lon }: { lat: number; lon: number })
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex lg:flex-col lg:h-[60vh] justify-center mt-6 lg:mt-0 gap-2 w-[95vw] lg:max-w-[240px] lg:w-[240px] lg:min-w-[200px]"
+            className="flex lg:flex-col lg:h-[60vh] justify-center mt-6 lg:mt-0 gap-1 ss:gap-2 mx-auto  ss:w-[90vw] lg:max-w-[240px] lg:w-[240px] lg:min-w-[200px]"
         >
             {forecast.map((day: ForecastDay, i: number) => (
-                <motion.div key={i} variants={item} className="flex flex-col flex-1 items-center justify-center bg-white dark:bg-neutral-800 rounded-xl p-3 lg:p-2 shadow-xl">
-                    <p className="text-sm font-medium">{day.weekday}</p>
+                <motion.div
+                    key={i}
+                    variants={item}
+                    className="flex flex-col flex-1 hover:bg-neutral-50 items-center justify-center bg-white dark:bg-neutral-800 dark:hover:bg-[#212121] rounded-xl p-2 ss:p-3 lg:p-2 shadow-xl"
+                >
+                    <p className="text-sm font-medium ">{day.weekday}</p>
 
                     <div className="animate-scalePulse ">
                         <SmallIcons code={day.icon} />

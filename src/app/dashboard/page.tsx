@@ -6,6 +6,7 @@ import NextFiveDays from './components/NextFiveDays';
 import { Weather } from './components/Weather';
 import { useMemo, useEffect, useState } from 'react';
 import Holiday from './components/Holiday';
+import { Modal } from './components/Modal';
 
 export default function Page() {
     const searchParams = useSearchParams();
@@ -30,13 +31,14 @@ export default function Page() {
     if (!mounted) return null;
 
     return (
-        <div className="flex-1 flex  flex-col items-center justify-center  ">
+        <div className="flex-1 flex bg-[#F5F5F5]  dark:bg-neutral-900 flex-col items-center justify-center  ">
             <div className="lg:flex lg:justify-evenly transition-all duration-500 lg:items-center  w-[95vw] max-w-[1500px] ">
                 <Weather />
-                {coords ? <NextFiveDays lat={coords.lat} lon={coords.lon} /> : <div className="w-[15vw]">Selecione uma cidade para ver a previsão.</div>}
+                {coords ? <NextFiveDays lat={coords.lat} lon={coords.lon} /> : <div className="">Selecione uma cidade para ver a previsão.</div>}
             </div>
 
             <Holiday />
+            <Modal />
         </div>
     );
 }
