@@ -10,10 +10,10 @@ export default function Holiday() {
     const [loading, setLoading] = useState(true);
     const [mounted, setMounted] = useState(false);
 
+    // verifica se foi montada a URL para fazer a requisição do proximo feriado
     useEffect(() => {
         setMounted(true);
     }, []);
-
     useEffect(() => {
         if (!mounted) return;
 
@@ -46,8 +46,8 @@ export default function Holiday() {
             className="mt-10 p-4 rounded-xl bg-[#e0e0e049] dark:bg-[#27272756] w-[40vw]  min-w-[250px]  flex flex-col items-center justify-center  gap-4 text-sm text-neutral-500 dark:text-neutral-200"
         >
             <p>próximo feriado</p>
-            <div className=" flex  items-center w-36 justify-between gap-2">
-                <div className="flex justify-center text-black text-md font-bold dark:text-white">
+            <div className="flex flex-col items-center  justify-between gap-2">
+                <div className="flex  justify-center text-black text-md font-bold dark:text-white">
                     <PartyPopper strokeWidth={0.8} className="text-neutral-500 " size={20} /> <p className="ml-1 dark:text-white ">{holiday.name}</p>
                 </div>
                 {holiday.date.replaceAll('-', '/')}

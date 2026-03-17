@@ -1,5 +1,5 @@
 import Local from '@/app/hooks/local';
-import InputLocal from '@/app/local/InputLocal';
+import InputLocal from '@/app/local/components/InputLocal';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { motion } from 'framer-motion';

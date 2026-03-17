@@ -16,8 +16,8 @@ const container: Variants = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15, // 👈 EFEITO EM CASCATA
-            delayChildren: 1 // 👈 Espera um pouco antes de começar
+            staggerChildren: 0.15,
+            delayChildren: 1
         }
     }
 };
@@ -39,6 +39,7 @@ export default function NextFiveDays({ lat, lon }: { lat: number; lon: number })
     const [forecast, setForecast] = useState<ForecastDay[]>([]);
     const [loading, setLoading] = useState(true);
 
+    //
     useEffect(() => {
         async function load() {
             try {
@@ -55,7 +56,7 @@ export default function NextFiveDays({ lat, lon }: { lat: number; lon: number })
         if (lat && lon) load();
     }, [lat, lon]);
 
-    if (loading) return <p></p>;
+    if (loading) return;
 
     if (!forecast || forecast.length === 0) {
         return <div className="w-[15vw]">Sem previsão disponível</div>;

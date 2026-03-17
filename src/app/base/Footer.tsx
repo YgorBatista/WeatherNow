@@ -3,7 +3,7 @@ import Image from 'next/image';
 const Footer = () => {
     return (
         <div className="relative bg-neutral-400 dark:bg-neutral-800 text-white   w-full shadow-2xl h-10 xs:h-12 flex justify-center items-center">
-            <a className="flex items-center gap-0.5 px-3 py-1 rounded-md hover:gap-3 group transition-all duration-300" href="https://github.com/YgorBatista">
+            <a className="flex items-center gap-0.5 px-3  rounded-md hover:gap-3 group transition-all duration-300" href="https://github.com/YgorBatista">
                 <span>feito por</span>
                 <Image
                     src="/img/github-icon.png"

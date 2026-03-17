@@ -1,14 +1,15 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+
 import Local from '@/app/hooks/local';
-import InputLocal from './InputLocal';
+import InputLocal from './components/InputLocal';
 
 export default function Page() {
     const { inputRef, query, setQuery, handleInputChange, suggestions, selectedLocation, isLoading, handleSelectLocation, SearchCity } = Local();
 
     return (
-        <main className="min-h-[90vh] bg-[#F5F5F5] dark:bg-neutral-900 flex items-center justify-center px-6">
+        <main className=" flex-1 bg-[#F5F5F5] dark:bg-neutral-900 flex items-center justify-center px-6">
             <div className="bg-white dark:bg-neutral-800 w-full max-w-4xl p-12 rounded-xl shadow-lg text-center relative">
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" className="w-full h-full">

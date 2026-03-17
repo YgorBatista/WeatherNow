@@ -34,7 +34,6 @@ export function Weather() {
             animate={{ opacity: 1, x: 0 }}
             transition={{
                 delay: 1,
-                duration: 0.6,
                 ease: 'backInOut',
                 type: 'spring',
                 bounce: 0.95, // máximo sem quebrar
@@ -43,7 +42,7 @@ export function Weather() {
             }}
             className="flex flex-col items-center justify-center"
         >
-            <div className="bg-white dark:bg-neutral-800 w-full lg:w-[70dvw] my-4 ss:my-0 max-w-[1200px] p-4 ss:p-12 rounded-xl shadow-lg relative">
+            <div className="bg-white dark:bg-neutral-800 w-full lg:w-[70dvw] my-4 ss:my-0 max-w-[1200px] p-4 ss:p-8 lg:p-12   rounded-xl shadow-lg relative ">
                 <div className="flex flex-col justify-center  items-center gap-6">
                     <h1 className="w-auto flex text-md sm:text-xl">
                         <MapPin className="mr-1" color="#888" />

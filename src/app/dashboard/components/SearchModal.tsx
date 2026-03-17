@@ -1,9 +1,9 @@
-import InputLocal from '@/app/local/InputLocal';
-import { Button } from '@/app/ui/button';
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/app/ui/dialog';
-import { useLocal } from '@/app/hooks/local';
+import InputLocal from '@/app/welcome/local/components/InputLocal';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import Local from '@/app/hooks/local';
 
-const { SearchCity, handleInputChange, handleSelectLocation, inputRef, isLoading, query, selectedLocation, setQuery, suggestions } = useLocal();
+const { SearchCity, handleInputChange, handleSelectLocation, inputRef, isLoading, query, selectedLocation, setQuery, suggestions } = Local();
 export function SearchModal() {
     return (
         <Dialog>
