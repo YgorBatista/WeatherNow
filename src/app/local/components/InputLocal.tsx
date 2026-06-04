@@ -4,14 +4,14 @@ import { Input } from '@/components/ui/input';
 import type { LocationSuggestion } from '@/app/hooks/local';
 import { useRouter } from 'next/navigation';
 
-interface InputLocalProps {
+type InputLocalProps = {
     inputRef: React.RefObject<HTMLInputElement | null>;
     query: string;
     handleInputChangeAction: (value: string) => void;
     suggestions: LocationSuggestion[];
     handleSelectLocationAction: (item: LocationSuggestion) => void;
     isLoading: boolean;
-}
+};
 
 export default function InputLocal({ inputRef, query, handleInputChangeAction, suggestions, handleSelectLocationAction, isLoading }: InputLocalProps) {
     const router = useRouter();
