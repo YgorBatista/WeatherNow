@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Local from '@/app/hooks/local';
 
-const { SearchCity, handleInputChange, handleSelectLocation, inputRef, isLoading, query, selectedLocation, setQuery, suggestions } = Local();
+const { handleInputChange, handleSelectLocation, inputRef, isLoading, query, suggestions } = Local();
 export function SearchModal() {
     return (
         <Dialog>
