@@ -1,9 +1,7 @@
 'use client';
-
 import { Button } from '@/components/ui/button';
-
 import Local from '@/app/hooks/local';
-import InputLocal from './components/InputLocal';
+import InputLocal from '@/app/local/components/InputLocal';
 
 export default function Page() {
     const { inputRef, query, setQuery, handleInputChange, suggestions, selectedLocation, isLoading, handleSelectLocation, SearchCity } = Local();
