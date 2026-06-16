@@ -1,6 +1,7 @@
 'use client';
 
-import getNextHoliday, { HolidayData } from '@/app/hooks/holidayAPI';
+import getNextHoliday from '@/app/services/holidayAPI';
+import { HolidayData } from '@/app/types/HolidayDataProps';
 import { PartyPopper } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';

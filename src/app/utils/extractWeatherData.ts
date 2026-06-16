@@ -1,19 +1,6 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 
-export type WeatherData = {
-    name: string,
-    country:string,
-    temp:number,
-    weather:string,
-    description:string, 
-    humidity:number,
-    wind_speed:number,
-    feels_like:number,
-    icon:string,
-    pressure:number,
-
-
-}
+import { WeatherData } from "@/app/types/weatherDataProps";
 
 export function extractWeatherData( searchParams:ReadonlyURLSearchParams):WeatherData | null {
 
@@ -23,7 +10,7 @@ export function extractWeatherData( searchParams:ReadonlyURLSearchParams):Weathe
     const weather = searchParams.get('weather')
     const description = searchParams.get('description')
     const humidity = searchParams.get('humidity')
-    const wind_speed = searchParams.get(' wind_speed')
+    const wind_speed = searchParams.get('wind_speed')
     const feels_like = searchParams.get('feels_like')
     const pressure = searchParams.get('pressure')
     const icon= searchParams.get('icon')

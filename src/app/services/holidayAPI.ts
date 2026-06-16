@@ -1,11 +1,6 @@
 import axios from 'axios'
 
-export type HolidayData ={
-    date:string,
-    name:string,
-    remainingDays:number
-}
-
+import { HolidayData } from '@/app/types/HolidayDataProps'
 export default async function holidayAPI(): Promise<HolidayData | null> {
 
     const year = new Date().getFullYear()

@@ -24,7 +24,7 @@ export default function Dashboard() {
 
     return (
         <div className="flex-1 flex bg-[#F5F5F5] dark:bg-neutral-900 flex-col items-center justify-center overflow-hidden">
-            <div className="lg:flex lg:justify-evenly lg:items-center w-[95vw] max-w-[1500px]">
+            <div className="lg:flex lg:justify-evenly lg:items-center w-[95vw] max-w-[1500px] mt-2">
                 <Weather />
                 {coords ? <NextFiveDays lat={coords.lat} lon={coords.lon} /> : <div>Selecione uma cidade para ver a previsão.</div>}
             </div>

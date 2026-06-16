@@ -4,18 +4,13 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-export type LocationSuggestion = {
-    name: string;
-    fullName: string;
-    lat: number;
-    lon: number;
-    country: string;
-    state:string;
-};
+import {LocationSuggestion} from "@/app/types/localSuggestionProps"
 
 export default function Local() {
+    
     const router = useRouter();
     const inputRef = useRef<HTMLInputElement>(null);
+
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState<LocationSuggestion[]>([]);
     const [selectedLocation, setSelectedLocation] = useState<LocationSuggestion | null>(null);
@@ -88,7 +83,7 @@ export default function Local() {
             } finally {
                 setIsLoading(false);
             }
-        }, 1000); // Debounce de 500ms
+        }, 1000); // Debounce de 1 segundo
 
         return () => clearTimeout(timer);
     }, [query, selectedLocation]);

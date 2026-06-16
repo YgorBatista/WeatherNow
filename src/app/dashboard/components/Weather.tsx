@@ -3,8 +3,8 @@
 import { DropletIcon, Gauge, MapPin, ThermometerIcon, WindIcon, Cloud } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-
-import { WeatherData, extractWeatherData } from '@/app/hooks/extractWeatherData';
+import { extractWeatherData } from '@/app/utils/extractWeatherData';
+import { WeatherData } from '@/app/types/weatherDataProps';
 import { motion } from 'framer-motion';
 import { getIconSize, getWeatherIcon } from '@/app/icons/TempIcons';
 

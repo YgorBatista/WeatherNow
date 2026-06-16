@@ -1,6 +1,6 @@
 'use client';
 
-import fiveDaysAPI from '@/app/hooks/fiveDaysAPI';
+import fiveDaysAPI from '@/app/services/fiveDaysAPI';
 import { useEffect, useState } from 'react';
 import SmallIcons from '@/app/icons/SmallIcons';
 import { Variants, motion } from 'framer-motion';
